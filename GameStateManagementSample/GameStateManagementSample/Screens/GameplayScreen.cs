@@ -117,6 +117,10 @@ namespace GameStateManagementSample
 
         public override void Deactivate()
         {
+            ScreenManager.sceneInterface.Unload();
+            ScreenManager.sunBurnCoreSystem.Unload();
+
+            ScreenManager.environment = null;
 
             base.Deactivate();
         }
@@ -128,16 +132,7 @@ namespace GameStateManagementSample
         public override void Unload()
         {
             content.Unload();
-            ScreenManager.sceneInterface.Unload();
-            ScreenManager.sunBurnCoreSystem.Unload();
-
-            ScreenManager.environment = null;
-
-
-#if WINDOWS_PHONE
-            Microsoft.Phone.Shell.PhoneApplicationService.Current.State.Remove("PlayerPosition");
-            Microsoft.Phone.Shell.PhoneApplicationService.Current.State.Remove("EnemyPosition");
-#endif
+            
         }
 
 

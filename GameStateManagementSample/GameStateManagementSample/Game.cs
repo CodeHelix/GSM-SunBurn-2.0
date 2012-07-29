@@ -190,13 +190,6 @@ namespace GameStateManagementSample
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Enables game input / control when not editing the scene (the editor provides its own control).
-            if (!screenManager.sceneInterface.Editor.EditorAttached)
-            {
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                    this.Exit();
-            }
-
             // TODO: Add your update logic here
 
             base.Update(gameTime);
